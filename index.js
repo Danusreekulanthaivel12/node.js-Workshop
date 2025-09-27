@@ -4,7 +4,11 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 app.use(express.json());
 const moviesRouter = require("./routes/movies");
+const userRouter = require('./routes/user');
+
 app.use("/movies", moviesRouter);
+app.use('/user', userRouter);
+
 app.use("/", (req, res) => {
   res.send("Welcome to Movie Buffet");
 });
