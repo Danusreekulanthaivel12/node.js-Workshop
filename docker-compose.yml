@@ -1,0 +1,21 @@
+services:
+  node-services:
+      container_name: myapp
+      build:
+        context: .
+        dockerfile: DockerFile
+      ports:
+        - "3000:3000"
+      networks:
+        - my-node-app-network
+      depends_on:
+        - mongo-service
+  mongo-service:
+      container_name: mongoservices
+      image: mongo
+      ports:
+        - "27017:27017"
+      networks:
+        - my-node-app-network
+networks:
+  my-node-app-network:
