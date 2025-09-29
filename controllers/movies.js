@@ -82,8 +82,8 @@ const deleteMovie = async (req, res) => {
     const id = req.params.id;
     const deletedMovie = await movieServices.deleteMovie(id);
     deletedMovie
-      ? res.status(200).send({ message: "Movie deleted successfully" })
-      : res.status(404).send({ message: "Movie not found" });
+      ? res.status(200).send({ message: "Movie deleted Successfully" })
+      : res.status(404).send({ message: "Movie not Found" });
   } catch (error) {
     console.log("Error updating favorite status:", error);
     res.status(500).send({ message: "Internal Server Error" });
