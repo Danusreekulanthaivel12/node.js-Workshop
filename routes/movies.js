@@ -8,9 +8,11 @@ const {
   deleteMovie,
 } = require("../controllers/movies");
 
+const { verifyToken } = require('../middlewares/auth');
+
 router.get("/", getMovies);
 router.get("/:id", getMovie);
-router.post("/", postMovie);
+router.post("/", verifyToken, postMovie);
 router.patch("/:id", updateMovie);
 router.delete("/:id", deleteMovie);
 
